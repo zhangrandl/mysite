@@ -34,7 +34,7 @@ def db_handle(request):
                                        password=request.POST['password'],
                                        age=request.POST['age'])
     user_list_obj = models.UserInfo.objects.all()
-    return render(request, 't1.html', {'li': user_list_obj})
+    return render(request, 'app01/t1.html', {'li': user_list_obj})
 
 
 def home(request):
@@ -49,3 +49,8 @@ def news(request, nid1, nid2):
 def page(request, n2, n1):
     response = "OK" + n1 + n2
     return HttpResponse(response)
+
+
+def special_case_2003(request):
+    print("matched 2003")
+    return HttpResponse("matched...")
