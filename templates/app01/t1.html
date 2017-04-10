@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/app01/dbhandle" method="post">
+    <p><label>
+        <input name="username"/>
+    </label></p>
+    <p><label>
+        <input name="password"/>
+    </label></p>
+    <p><label>
+        <input name="age"/>
+    </label></p>
+    <p><input type="submit" value="提交"></p>
+</form>
+<table border="1">
+    <thead>
+    <tr>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>年龄</th>
+    </tr>
+    </thead>
+    <tbody>
+    {#    {% for item in li %}#}
+    {#        {% if item.username == 'zhang' %}#}
+    {#            <tr style="background: red">#}
+    {#                <td>{{ item.username }}</td>#}
+    {#                <td>{{ item.password }}</td>#}
+    {#                <td>{{ item.age }}</td>#}
+    {#            </tr>#}
+    {#        {% else %}#}
+    {#            <tr>#}
+    {#                <td>{{ item.username }}</td>#}
+    {#                <td>{{ item.password }}</td>#}
+    {#                <td>{{ item.age }}</td>#}
+    {#            </tr>#}
+    {#        {% endif %}#}
+    {#    {% endfor %}#}
+
+    {#    {% for item in li %}#}
+    {#       {% if forloop.counter > 2 %} {# 从第三行起变成红色 #}
+    {#            <tr style="background: red">#}
+    {#                <td>{{ item.username }}</td>#}
+    {#                <td>{{ item.password }}</td>#}
+    {#                <td>{{ item.age }}</td>#}
+    {#            </tr>#}
+    {#        {% else %}#}
+    {#            <tr>#}
+    {#                <td>{{ item.username }}</td>#}
+    {#                <td>{{ item.password }}</td>#}
+    {#                <td>{{ item.age }}</td>#}
+    {#            </tr>#}
+    {#        {% endif %}#}
+    {#    {% endfor %}#}
+    {% for item in li %}
+        {% if forloop.counter|divisibleby:'2' %} {# 如果行数能被2整除，也就是偶数行，变红 #}
+            <tr style="background: red">
+                <td>{{ item.username }}</td>
+                <td>{{ item.password }}</td>
+                <td>{{ item.age }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>{{ item.username }}</td>
+                <td>{{ item.password }}</td>
+                <td>{{ item.age }}</td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
